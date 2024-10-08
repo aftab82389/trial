@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Information Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Student Information Form</h3>
+
+<div>
+  <form id="studentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="fatherName">Father's Name:</label>
+    <input type="text" id="fatherName" name="fatherName" required><br><br>
+
+    <label for="motherName">Mother's Name:</label>
+    <input type="text" id="motherName" name="motherName" required><br><br>
+
+    <label for="rollNo">Roll No.:</label>
+    <input type="text" id="rollNo" name="rollNo" required><br><br>
+
+    <label for="college">College Name:</label>
+    <input type="text" id="college" name="college" required><br><br>
+
+    <label for="semester">Semester:</label>
+    <select id="semester" name="semester">
+      <option value="">Select Semester</option>
+      <option value="1">1st Semester</option>
+      <option value="2">2nd Semester</option>
+      <option value="3">3rd Semester</option>
+      <option value="4">4th Semester</option>
+      <option value="5">5th Semester</option>
+      <option value="6">6th Semester</option>
+    </select><br><br>
+
+    <label for="subjects">Subjects (comma-separated):</label><br>
+    <textarea id="subjects" name="subjects" rows="4" cols="50" required></textarea><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("studentForm");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    // Retrieve form data
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    // You can now process the data, e.g., send it to a server or display it.
+    console.log(data); 
+  });
+</script>
+
+</body>
+</html>
